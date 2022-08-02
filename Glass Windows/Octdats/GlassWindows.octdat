@@ -1,0 +1,139 @@
+// Author: dpahfl
+// Version: 1.0
+// Description: Church Windows for Stone Wall
+{
+  id GlassWindows.Props.Wall.GlassWindow1
+  type WallPropType
+  inherit Oct.Props.Wall.Tall
+  inherit Oct.Props.Audio.Stone
+
+  name = Stone Church Window
+    pluralName = Stone Church Windows
+    toolName = Stone Church Window
+	
+	buildItemFilter = <Oct.Items.Stackable.Stone>
+	buildItemCount = 12
+	repairItemFilter = <Oct.Items.Stackable.Stone>
+    
+    maxHealth = 400
+    progressMultiplier = .2
+    difficulty = 1.25
+    skillCurve = .75
+    
+    minValue = 0
+    maxValue = 4
+    
+    burnRate = 0
+	
+	researchEntry = <Oct.Research.Building.Walls.Stone>
+    
+    ignoreDestruction =
+    [
+        Motar
+        Mortar
+    ]
+
+cornerPostAccent = 
+	{
+		id Oct.Props.Wall.Stone.Post
+		type PropAccentType
+		
+		prefab = 
+		{
+			type Prefab
+			path = /Art/Props/Stone/Column/StoneColumn.fbx 
+			name = StoneWallPost
+            behavior = WallPostPropAccentBehavior
+			
+            sharedMaterials = 
+            [
+                {
+                    type OctDatSharedMaterial
+                    names = 
+                    [
+                        rock_01_mat
+                        rock_02_mat
+                        rock_03_mat
+                        rock_04_mat
+                    ]
+                    material = <Oct.Props.Materials.Stone.WorldAO>
+                }
+            ]
+		}
+	}
+  resolvablePrefabs = 
+	[
+		{
+			type ResolvablePropPrefab
+			inherit Oct.Props.Wall.WallPrefab
+			
+			name = Stone Church Window
+			
+			prefab =
+            {
+                type Prefab
+                path = /Art/GlassWindow.fbx
+                name = StoneWallGlassWindow
+                behavior = WallPropBehavior
+			
+                sharedMaterials = 
+                [
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            rock_01_mat
+                            rock_02_mat
+                            rock_03_mat
+                            rock_04_mat
+                        ]
+                        material = <Oct.Props.Materials.Stone.WorldAO>
+                    }
+                ]
+            }
+		}
+  ]
+      colorSlots = 
+	[
+		{
+			type PropColorSlot
+			name = Rock 1
+			defaultEntry = 0
+            materials =
+            [
+                rock_01_mat
+            ]
+			palette = <Oct.Props.Palettes.Stone>
+		}	
+		{
+			type PropColorSlot
+			name = Rock 2
+			defaultEntry = 1
+            materials =
+            [
+                rock_02_mat
+            ]
+			palette = <Oct.Props.Palettes.Stone>
+		}
+		{
+			type PropColorSlot
+			name = Rock 3
+			defaultEntry = 2
+            materials =
+            [
+                rock_03_mat
+            ]
+			palette = <Oct.Props.Palettes.Stone>
+		}
+		{
+			type PropColorSlot
+			name = Rock 4
+			defaultEntry = 3
+            materials =
+            [
+                rock_04_mat
+            ]
+			palette = <Oct.Props.Palettes.Stone>
+		}
+	]
+}
