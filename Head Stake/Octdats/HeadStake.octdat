@@ -1,0 +1,222 @@
+// Author: dpahfl
+// Version: 1.0
+// Description: Mod that adds stakes as an option for graves
+
+{
+	id Oct.Props.Grave.HeadSpike
+	type GravePropType
+	
+	actorType = GravePropActor
+	category = <Oct.Props.Categories.Graves>
+	selectionMode = Tile
+	buildingMode = Props
+    rotation = choose
+    
+    crateable = false
+	
+	name = Head Spike
+    pluralName = Head Spikes
+    toolName = Head
+	toolSort = -1000
+    
+    maxHealth = 100
+    progressMultiplier = .25
+    difficulty = .5
+    burnRate = 0
+    demolition = false
+    decays = false
+    
+    strategic = false
+	
+	buildItemFilter = <Oct.Items.Stackable.Wood>
+	buildItemCount = 4
+	repairItemFilter = <Oct.Items.Stackable.Wood>
+	
+	buildPos = 
+	[
+		vector(0, 0, 0)
+	]
+	
+	clipOffset = -.5
+	clipSpace = vector(0, 0, 1)
+	
+	prefabs = 
+	[
+		{
+			type Prefab
+			path = \Art\SpikeThin-Plain.fbx
+			name = SpikeThinPlain
+            behavior = PropBehavior
+            
+            sharedMaterials = 
+            [
+                {
+                    type OctDatSharedMaterial
+                    names = 
+                    [
+                        Wood
+                    ]
+                    material = <Oct.Props.Materials.Wood>
+                }
+                {
+                    type OctDatSharedMaterial
+                    names = 
+                    [
+                        Wood-End
+                    ]
+                    material = <Oct.Props.Materials.WoodEnd>
+                }
+                {
+                    type OctDatSharedMaterial
+                    names = 
+                    [
+                        bone
+                    ]
+                    material = <Oct.Props.Materials.Stone>
+                }
+            ]
+		}
+    ]
+    
+    filled = 
+    [
+		{
+            id Oct.Props.Grave.HeadSpike.Filled.1
+            type GraveFilledVariant
+            prefab =
+            {
+			    type Prefab
+			    path = \Art\Props\Wood\Spikes\SpikeThin-Skull.fbx
+			    name = SpikeThinSkull
+                behavior = PropBehavior
+            
+                sharedMaterials = 
+                [
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            Wood
+                        ]
+                        material = <Oct.Props.Materials.Wood>
+                    }
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            Wood-End
+                        ]
+                        material = <Oct.Props.Materials.WoodEnd>
+                    }
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            bone
+                        ]
+                        material = <Oct.Props.Materials.Stone>
+                    }
+                ]   
+            }
+		}
+        {
+            id Oct.Props.Grave.HeadSpike.Filled.2
+            type GraveFilledVariant
+            prefab =
+            {
+			    type Prefab
+			    path = \Art\Props\Wood\Spikes\SpikeThin-SkullThroughEye.fbx
+			    name = SkullThroughEye
+                behavior = PropBehavior
+
+                sharedMaterials = 
+                [
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            Wood
+                        ]
+                        material = <Oct.Props.Materials.Wood>
+                    }
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            Wood-End
+                        ]
+                        material = <Oct.Props.Materials.WoodEnd>
+                    }
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            bone
+                        ]
+                        material = <Oct.Props.Materials.Stone>
+                    }
+                ]
+            }
+		}
+    ]
+
+    tombstones = 
+    [
+        {
+            id Oct.Props.Grave.HeadStake.Skull.1
+            type GraveTombstoneVariant
+            prefab =
+            {
+                type Prefab
+                path = /Art/Props/Decoration/TableStuff/SmallSkull.fbx
+                name = Skull 1
+                behavior = PropAccentBehavior
+                physics = false
+                scale = .01
+                
+                sharedMaterials = 
+                [
+                    {
+                        type OctDatSharedMaterial
+                        names = 
+                        [
+                            bone
+                        ]
+                        material = <Oct.Props.Materials.Stone>
+                    }
+                ]
+            }
+        }
+    ]
+    	
+    colorSlots = 
+	[
+		{
+			type PropColorSlot
+			name = Wood
+            materials =
+            [
+                Wood
+            ]
+			palette = <Oct.Props.Palettes.Wood>
+		}
+        {
+			type PropColorSlot
+			name = Wood End
+            materials =
+            [
+                Wood-End
+            ]
+			palette = <Oct.Props.Palettes.WoodHighlight>
+		}
+        {
+			type PropColorSlot
+			name = Skull
+            materials =
+            [
+                bone
+            ]
+			palette = <Oct.Props.Palettes.Stone>
+		}
+	]
+}
